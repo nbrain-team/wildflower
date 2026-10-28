@@ -391,6 +391,41 @@ p { margin: 0 0 1em; }
 .form-success img { width: 120px; margin: 0 auto 18px; }
 .form-success p { color: var(--plum-soft); max-width: 26em; margin-inline: auto; }
 
+/* Book an Eval */
+.eval-hero { padding-bottom: var(--section-pad); }
+.eval-grid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(40px, 6vw, 82px);
+  align-items: start;
+}
+.eval-copy { padding-top: 18px; }
+.eval-copy .lead { margin-bottom: 32px; }
+.eval-cards { display: grid; gap: 16px; margin-top: 34px; }
+.mini-card {
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-soft);
+}
+.mini-card span {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+.mini-card strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.08rem;
+  color: var(--plum);
+  margin-bottom: 4px;
+}
+.mini-card p { margin: 0; color: var(--plum-soft); font-size: 0.94rem; line-height: 1.6; }
+.form-intro { color: var(--plum-soft); margin-top: -6px; margin-bottom: 24px; }
+
 /* Footer */
 .site-footer { background: var(--ash); color: var(--plum); padding: 72px 0 34px; position: relative; overflow: hidden; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; align-items: start; }
@@ -459,9 +494,11 @@ p { margin: 0 0 1em; }
   .nav-links a::after { right: auto; width: 36px; left: 4px; bottom: 6px; }
   .nav .btn { width: 100%; }
 
-  .hero-grid, .page-hero-grid, .split, .contact-grid, .duo { grid-template-columns: 1fr; }
+  .hero-grid, .page-hero-grid, .split, .contact-grid, .duo, .eval-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-areas: "intro" "form" "more"; }
   .contact-grid .form-card { margin: 8px 0 36px; }
+  .eval-copy { padding-top: 0; }
+  .eval-cards { grid-template-columns: repeat(3, 1fr); }
   .hero-grid { text-align: center; }
   .hero h1, .hero .lead { margin-inline: auto; }
   .verse { justify-content: center; }
@@ -485,6 +522,7 @@ p { margin: 0 0 1em; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .gallery img:nth-child(n+15) { display: none; }
   .section-head { margin-bottom: 40px; }
+  .eval-cards { grid-template-columns: 1fr; }
   .deco--sprig { width: 64px; }
   .deco--blooms { width: 130px; }
   .hero-media .deco--sprig { right: -18px; }

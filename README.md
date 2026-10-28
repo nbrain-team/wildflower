@@ -9,7 +9,8 @@ public/
 ├── index.html       Home: hero, services preview, about Bri, testimonials, contact CTA
 ├── about.html       Story, Luke 12:27 philosophy, mission/vision, values, photo gallery
 ├── services.html    Private Lessons, Day Training, Board and Train, Boarding, how to start
-├── contact.html     Inquiry form (name, email, phone, dog info, service, message)
+├── book-eval.html     Themed Book an Eval page and form (name, email, phone, dog info, service, message)
+├── contact.html     Legacy contact page with the original contact form
 ├── 404.html
 └── assets/
     ├── css/style.css   All styles; brand colors live in :root

@@ -117,7 +117,7 @@ function initContactForm() {
     const data = Object.fromEntries(new FormData(form).entries());
     delete data._honey;
     const payload = {
-      _subject: `New inquiry from ${data.name}${data.dog_name ? ` about ${data.dog_name}` : ""}`,
+      _subject: `New eval request from ${data.name}${data.dog_name ? ` about ${data.dog_name}` : ""}`,
       _template: "table",
       _replyto: data.email,
       ...data,
@@ -141,7 +141,7 @@ function initContactForm() {
         <div class="form-success" role="status">
           <img src="/assets/brand/logo-wreath-sm.png" alt="">
           <h2>Thank you, ${escapeHtml(data.name.split(" ")[0])}!</h2>
-          <p>Your message is on its way. Bri will reach out personally to talk about ${data.dog_name ? escapeHtml(data.dog_name) : "your dog"} and what you're hoping for.</p>
+          <p>Your eval request is on its way. Bri will reach out personally to talk about ${data.dog_name ? escapeHtml(data.dog_name) : "your dog"} and what you're hoping for.</p>
         </div>`;
       card.scrollIntoView({ behavior: "smooth", block: "center" });
     } catch (err) {

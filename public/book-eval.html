@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book an Eval | Wildflower Canines Dog Training, Las Vegas</title>
+  <meta name="description" content="Book an evaluation with Wildflower Canines in Las Vegas for private lessons, day training, board and train, or boarding for existing clients.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book an Eval with Wildflower Canines">
+  <meta property="og:description" content="Tell us about your dog and what you are hoping for. Bri will reach out personally.">
+  <meta property="og:image" content="/assets/brand/og-image.jpg">
+  <meta name="theme-color" content="#FBF7EC">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Wildflower Canines home">
+        <img src="/assets/brand/wordmark-sm.png" alt="Wildflower Canines" width="420" height="111">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/book-eval.html" aria-current="page">Book an Eval</a></li>
+        </ul>
+        <a class="btn btn--sm" href="#contact-form">Book an Eval</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero eval-hero">
+      <img class="deco deco--blooms deco--bl" src="/assets/brand/blooms.svg" alt="" aria-hidden="true">
+      <img class="deco deco--sprig deco--tr" src="/assets/brand/sprig.svg" alt="" aria-hidden="true">
+      <div class="container eval-grid">
+        <div class="eval-copy reveal">
+          <span class="eyebrow">Book an Eval</span>
+          <h1>Tell me where your dog is growing next.</h1>
+          <p class="lead">A thoughtful note helps me understand your dog, your home rhythm, and what kind of support would feel most helpful right now.</p>
+          <div class="eval-cards" aria-label="What to expect">
+            <div class="mini-card card--thistle">
+              <span>01</span>
+              <strong>Share the basics</strong>
+              <p>Tell me about your dog, your goals, and the patterns you are seeing at home.</p>
+            </div>
+            <div class="mini-card card--blush">
+              <span>02</span>
+              <strong>I will reach out</strong>
+              <p>Bri replies personally so we can talk through fit, timing, and the best next step.</p>
+            </div>
+            <div class="mini-card card--blue">
+              <span>03</span>
+              <strong>Build a plan</strong>
+              <p>If it feels right, we shape training around your dog instead of forcing a preset program.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card eval-form reveal reveal-delay-1">
+          <h2>Book your eval</h2>
+          <p class="form-intro">No pressure and no spam. Just enough detail for a real conversation.</p>
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="opt">(optional)</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="dog_name">Dog's name</label>
+                <input id="dog_name" name="dog_name" type="text" required>
+              </div>
+              <div class="field">
+                <label for="dog_details">Breed &amp; age <span class="opt">(optional)</span></label>
+                <input id="dog_details" name="dog_details" type="text" placeholder="e.g. Heeler mix, 8 months">
+              </div>
+              <div class="field">
+                <label for="service">Interested in</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Choose one</option>
+                  <option data-key="private-lessons">Private Lessons</option>
+                  <option data-key="day-training">Day Training</option>
+                  <option data-key="board-and-train">Board and Train</option>
+                  <option data-key="boarding">Boarding (existing clients)</option>
+                  <option data-key="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="message">What would you like help with?</label>
+                <textarea id="message" name="message" required placeholder="A sentence or two is perfect: what is going well, what feels hard, and what you are hoping for."></textarea>
+              </div>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="_honey">Leave this field empty</label>
+              <input id="_honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-actions">
+              <button class="btn btn--lg" type="submit">Book an eval</button>
+              <small>Bri reads every eval request personally.</small>
+            </div>
+            <p class="form-status" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sand">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Before you send</span>
+          <h2>A few details help me guide you well.</h2>
+          <p>You do not need perfect answers. Start with what you know, and we will sort through the rest together.</p>
+        </div>
+        <div class="values">
+          <div class="value card--thistle reveal">
+            <h3>Your dog's season</h3>
+            <p>Age, breed, energy level, and any changes at home all help shape the right training path.</p>
+          </div>
+          <div class="value card--blush reveal reveal-delay-1">
+            <h3>Your biggest goal</h3>
+            <p>Tell me what would make daily life feel calmer, safer, or more connected for both of you.</p>
+          </div>
+          <div class="value card--blue reveal reveal-delay-2">
+            <h3>Your preferred rhythm</h3>
+            <p>Private lessons, day training, and board and train all support different family schedules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/assets/brand/logo-wreath-sm.png" alt="Wildflower Canines logo" width="231" height="320" loading="lazy">
+          <p>Growing connection, one petal at a time.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/book-eval.html">Book an Eval</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Say hello</h4>
+          <p>Las Vegas, Nevada</p>
+          <p><a href="#contact-form">Book an eval</a></p>
+          <div class="socials" data-socials></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Wildflower Canines. All rights reserved.</span>
+        <span>&ldquo;Consider how the wild flowers grow.&rdquo; Luke 12:27</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
