@@ -1,9 +1,7 @@
 /* Wildflower Canines — site behavior */
 
-// Site settings. Swap formEmail to Bri's inbox once confirmed; FormSubmit
-// emails an activation link to that address on the first submission.
+// Site settings. Form submissions are handled by the backend /api/eval route.
 const SITE = {
-  formEmail: "wildflowercanines@gmail.com",
   social: {
     instagram: "",
     facebook: "",
@@ -103,32 +101,6 @@ function initContactForm() {
   const status = form.querySelector(".form-status");
   const button = form.querySelector('button[type="submit"]');
 
-  if (form.dataset.nativeSubmit === "true") {
-    form.addEventListener("submit", (e) => {
-      status.textContent = "";
-      status.classList.remove("is-error");
-
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        form.reportValidity();
-        return;
-      }
-      if (form.querySelector('[name="_honey"]').value) {
-        e.preventDefault();
-        return;
-      }
-
-      const data = Object.fromEntries(new FormData(form).entries());
-      const subject = form.querySelector('[name="_subject"]');
-      const replyTo = form.querySelector('[name="_replyto"]');
-      if (subject) subject.value = `New eval request from ${data.name}${data.dog_name ? ` about ${data.dog_name}` : ""}`;
-      if (replyTo) replyTo.value = data.email || "";
-      button.disabled = true;
-      button.textContent = "Sending...";
-    });
-    return;
-  }
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     status.textContent = "";
@@ -141,26 +113,19 @@ function initContactForm() {
     if (form.querySelector('[name="_honey"]').value) return;
 
     const data = Object.fromEntries(new FormData(form).entries());
-    delete data._honey;
-    const payload = {
-      _subject: `New eval request from ${data.name}${data.dog_name ? ` about ${data.dog_name}` : ""}`,
-      _template: "table",
-      _replyto: data.email,
-      ...data,
-    };
 
     button.disabled = true;
     const label = button.textContent;
-    button.textContent = "Sending…";
+    button.textContent = "Sending...";
 
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${SITE.formEmail}`, {
+      const res = await fetch(form.action || "/api/eval", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || String(json.success) === "false") throw new Error(json.message || "Send failed");
+      if (!res.ok || String(json.ok) === "false") throw new Error(json.error || "Send failed");
 
       const card = form.closest(".form-card");
       card.innerHTML = `

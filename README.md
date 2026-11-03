@@ -1,10 +1,12 @@
 # Wildflower Canines — Website
 
-Marketing site for Wildflower Canines, a Las Vegas dog training and boarding company. Plain HTML/CSS/JS with no build step, deployed as a Render static site.
+Marketing site for Wildflower Canines, a Las Vegas dog training and boarding company. Plain HTML/CSS frontend served by a small Node/Express backend that handles eval request emails.
 
 ## Structure
 
 ```
+server.js            Backend: static files + POST /api/eval email endpoint
+package.json         Node runtime dependencies and start script
 public/
 ├── index.html       Home: hero, services preview, about Bri, testimonials, contact CTA
 ├── about.html       Story, Luke 12:27 philosophy, mission/vision, values, photo gallery
@@ -21,9 +23,12 @@ public/
 
 ## Settings to update
 
-Form recipient settings live in the form `action` attributes in `public/book-eval.html` and `public/contact.html`; `public/assets/js/main.js` keeps the same email as the JavaScript fallback.
+Form submissions post to `/api/eval`, which sends email from the backend with Nodemailer.
 
-- `wildflowercanines@gmail.com` — where eval/contact form submissions are emailed (via [FormSubmit](https://formsubmit.co), no API key). The first submission to a new address triggers a one-time activation email that must be confirmed.
+- `NOTIFY_EMAIL` — where eval/contact form submissions are emailed. Defaults to `wildflowercanines@gmail.com`.
+- `GMAIL_USER` + `GMAIL_APP_PASSWORD` — preferred Gmail sender credentials.
+- Optional SMTP fallback: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`.
+- `MAIL_FROM_NAME` / `MAIL_FROM` — optional sender name/address overrides.
 - `social.instagram` / `facebook` / `tiktok` — full profile URLs. Icons appear in the footer only for the ones that are filled in.
 
 ## Brand
@@ -35,10 +40,18 @@ Form recipient settings live in the form `action` attributes in `public/book-eva
 ## Local preview
 
 ```bash
-cd public && python3 -m http.server 8765
-# open http://localhost:8765
+npm install
+cp .env.example .env
+# Fill in Gmail or SMTP env vars
+npm start
+# open http://localhost:3000
 ```
 
 ## Deploy
 
-Render static site, publish directory `public`, auto-deploys on every push to `main`.
+Render should run this as a Node Web Service, not a Static Site:
+
+- Build command: `npm install`
+- Start command: `npm start`
+- Required env vars: `NOTIFY_EMAIL`, plus either `GMAIL_USER` + `GMAIL_APP_PASSWORD` or the `SMTP_*` set.
+- Auto-deploy from `main` can remain enabled.
