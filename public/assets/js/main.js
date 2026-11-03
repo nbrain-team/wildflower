@@ -3,7 +3,7 @@
 // Site settings. Swap formEmail to Bri's inbox once confirmed; FormSubmit
 // emails an activation link to that address on the first submission.
 const SITE = {
-  formEmail: "danny@nbrain.ai",
+  formEmail: "wildflowercanines@gmail.com",
   social: {
     instagram: "",
     facebook: "",
