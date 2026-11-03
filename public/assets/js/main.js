@@ -103,6 +103,32 @@ function initContactForm() {
   const status = form.querySelector(".form-status");
   const button = form.querySelector('button[type="submit"]');
 
+  if (form.dataset.nativeSubmit === "true") {
+    form.addEventListener("submit", (e) => {
+      status.textContent = "";
+      status.classList.remove("is-error");
+
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+      }
+      if (form.querySelector('[name="_honey"]').value) {
+        e.preventDefault();
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = form.querySelector('[name="_subject"]');
+      const replyTo = form.querySelector('[name="_replyto"]');
+      if (subject) subject.value = `New eval request from ${data.name}${data.dog_name ? ` about ${data.dog_name}` : ""}`;
+      if (replyTo) replyTo.value = data.email || "";
+      button.disabled = true;
+      button.textContent = "Sending...";
+    });
+    return;
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     status.textContent = "";

@@ -21,9 +21,9 @@ public/
 
 ## Settings to update
 
-All in the `SITE` object at the top of `public/assets/js/main.js`:
+Form recipient settings live in the form `action` attributes in `public/book-eval.html` and `public/contact.html`; `public/assets/js/main.js` keeps the same email as the JavaScript fallback.
 
-- `formEmail` — where contact form submissions are emailed (via [FormSubmit](https://formsubmit.co), no API key). The first submission to a new address triggers a one-time activation email that must be confirmed.
+- `wildflowercanines@gmail.com` — where eval/contact form submissions are emailed (via [FormSubmit](https://formsubmit.co), no API key). The first submission to a new address triggers a one-time activation email that must be confirmed.
 - `social.instagram` / `facebook` / `tiktok` — full profile URLs. Icons appear in the footer only for the ones that are filled in.
 
 ## Brand
